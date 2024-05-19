@@ -46,6 +46,18 @@ def operacoes_basicas():
     else:
         print("Escolha inválida! Escolha uma das opções.")
 
+def conjuntos_numericos():
+    print("falta tudo")
+
+def funcoes_segundo_grau():
+    print("falta tudo")
+
+def funcoes_exponenciais():
+    print("falta tudo")
+
+def matrizes():
+    print("falta tudo")
+
 def sair():
     print("Saindo...")
     exit()
@@ -62,6 +74,14 @@ def menu_opcoes():
     opcao = input("Digite sua escolha: ")
     if opcao == '1':
         operacoes_basicas()
+    elif opcao == '2':
+        conjuntos_numericos()
+    elif opcao == '3':
+        funcoes_segundo_grau()
+    elif opcao == '4':
+        funcoes_exponenciais()
+    elif opcao == '5':
+        matrizes()
     elif opcao == '6':
         sair()
     else:
