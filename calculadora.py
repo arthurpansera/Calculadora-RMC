@@ -44,10 +44,41 @@ def operacoes_basicas():
     elif escolha == '5':
         print("Voltando...")
     else:
-        print("Escolha inválida! Escolha uma das opções.")
+        print("Escolha inválida!")
+
+def subconjunto_proprio():
+    print("falta tudo")
+
+def uniao():
+    print("falta tudo")
+
+def interseccao():
+    print("falta tudo")
+
+def diferenca():
+    print("falta tudo")
 
 def conjuntos_numericos():
-    print("falta tudo")
+    print(50*"-")
+    print("Selecione uma das opções:")
+    print("1. Verificar se A é subconjunto próprio de B")
+    print("2. Realizar operação de união")
+    print("3. Calcular intersecção")
+    print("4. Calcular diferença")
+    print("5. Voltar")
+    escolha = input("Digite sua escolha: ")
+    if escolha == '1':
+        subconjunto_proprio()
+    elif escolha == '2':
+        uniao()
+    elif escolha == '3':
+        interseccao()
+    elif escolha == '4':
+        diferenca()
+    elif escolha == '5':
+        print("Voltando")
+    else:
+        print("Escolha inválida!")
 
 def funcoes_segundo_grau():
     print("falta tudo")
