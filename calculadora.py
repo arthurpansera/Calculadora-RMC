@@ -47,7 +47,26 @@ def operacoes_basicas():
         print("Escolha inválida!")
 
 def subconjunto_proprio():
-    print("falta tudo")
+    conjuntoA = []
+    conjuntoB = []
+    cont = 0
+    qnt_numA = input("Digite quantos números o conjunto A deve ter: ")
+    while cont < int(qnt_numA):
+        numA = input("Digite um número para o conjunto A: ")
+        conjuntoA.append(numA)
+        cont += 1
+    print(f"Conjunto A: {conjuntoA}")
+    cont = 0
+    qnt_numB = input("Digite quantos números o conjunto B deve ter: ")
+    while cont < int(qnt_numB):
+        numB = input("Digite um número para o conjunto B: ")
+        conjuntoB.append(numB)
+        cont += 1
+    print(f"Conjunto B: {conjuntoB}")
+    if (conjuntoA <= conjuntoB) == True:
+        print("O conjunto A é subconjunto próprio de B")
+    else:
+        print("O conjunto A não é subconjunto próprio de B")
 
 def uniao():
     print("falta tudo")
