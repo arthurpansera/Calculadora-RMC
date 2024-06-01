@@ -243,19 +243,43 @@ def funcoes_exponenciais():
         print("Voltando...")
 
 def determinante(matriz):
-    print("falta tudo")
+    if len(matriz) != len(matriz[0]):
+        return print("Não é possível calcular o determinante pois a matriz não é quadrada")
+    if len(matriz) == 2:
+        det = matriz[0][0] * matriz[1][1] - matriz[0][1] * matriz[1][0]
+        return print(f"O determinante da matriz é: {det}")
+    elif len(matriz) == 3:
+        valor1 = matriz[0][0] * matriz[1][1] * matriz[2][2]
+        valor2 = matriz[0][1] * matriz[1][2] * matriz[2][0]
+        valor3 = matriz[0][2] * matriz[1][0] * matriz[2][1]
+        diagonal_principal = valor1 + valor2 + valor3
+        valor4 = matriz[0][1] * matriz[1][0] * matriz[2][2]
+        valor5 = matriz[0][0] * matriz[1][2] * matriz[2][1]
+        valor6 = matriz[0][2] * matriz[1][1] * matriz[2][0]
+        diagonal_secundaria = valor4 + valor5 + valor6
+        det = diagonal_principal - diagonal_secundaria
+        return print(f"O determinante da matriz é: {det}")
+    else:
+        return print("O determinante de matrizes maiores que 2x2 ou 3x3 não está implementado")
 
 def multiplicacao_matrizes(matriz):
     print("falta tudo")
 
 def matriz_transposta(matriz):
-    print("falta tudo")
+    transposta = []
+    for j in range(len(matriz[0])):
+        linha_transposta = []
+        for i in range(len(matriz)):
+            linha_transposta.append(matriz[i][j])
+        transposta.append(linha_transposta)
+    for linha in transposta:
+        print(linha)
 
 def matrizes():
     print(50 * "-")
+    matriz = []
     num_linhas = int(input("Informe o número de linhas da matriz: "))
     num_colunas = int(input("Informe o número de colunas da matriz: "))
-    matriz = []
     for i in range(num_linhas):
         linha = []
         for j in range(num_colunas):
