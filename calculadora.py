@@ -46,13 +46,15 @@ def operacoes_basicas():
         print("Voltando...")
 
 def subconjunto_proprio(conjuntoA, conjuntoB):
-    if (conjuntoA <= conjuntoB) == True:
-        return print("O conjunto A é subconjunto próprio de B")
+    for numA in conjuntoA:
+        if numA not in conjuntoB:
+            return print("O conjunto A não é subconjunto próprio de B")
     else:
-        return print("O conjunto A não é subconjunto próprio de B")
+        return print("O conjunto A é subconjunto próprio de B")
 
 def uniao(conjuntoA, conjuntoB):
     conjuntoC = conjuntoA + conjuntoB
+    conjuntoC.sort()
     return print(f"União dos conjuntos A e B: {conjuntoC}")
 
 def interseccao(conjuntoA, conjuntoB):
