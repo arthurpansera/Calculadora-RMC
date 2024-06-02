@@ -281,8 +281,9 @@ def multiplicacao_matrizes(matriz):
         matriz2.append(linha)
     for linha in matriz2:
         print(linha)
+    print("\n")
     if len(matriz[0]) != num_linhas2:
-        return print("Não é possível realizar a multiplicação pois as matrizes são de ordens diferentes")
+        return print("Não é possível realizar a multiplicação pois o número de colunas da primeira matriz é diferente do número de linhas da segunda")
     resultado = []
     for i in range(len(matriz)):
         linha = []
