@@ -292,10 +292,10 @@ def multiplicacao_matrizes(matriz):
     for i in range(len(matriz)):
         linha = []
         for j in range(len(matriz2[0])):
-            elemento = 0
+            multiplicacao_elementos = 0
             for k in range(len(matriz2)):
-                elemento += matriz[i][k] * matriz2[k][j]
-            linha.append(elemento)
+                multiplicacao_elementos += matriz[i][k] * matriz2[k][j]
+            linha.append(multiplicacao_elementos)
         resultado.append(linha)
     print("\nAxB =")
     for linha in resultado:
