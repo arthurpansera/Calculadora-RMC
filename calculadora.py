@@ -83,16 +83,20 @@ def conjuntos_numericos():
     conjuntoA = []
     conjuntoB = []
     cont = 0
-    qnt_numA = input("Digite quantos números o conjunto A deve ter: ")
+    qnt_numA = int(input("Digite quantos números o conjunto A deve ter: "))
+    while qnt_numA < 0:
+        qnt_numA = int(input("Número inválido! Digite um número maior ou igual a zero: "))
     while cont < int(qnt_numA):
-        numA = input("Digite um número para o conjunto A: ")
+        numA = float(input("Digite um número para o conjunto A: "))
         conjuntoA.append(numA)
         cont += 1
     print(f"Conjunto A: {conjuntoA}")
     cont = 0
-    qnt_numB = input("Digite quantos números o conjunto B deve ter: ")
+    qnt_numB = int(input("Digite quantos números o conjunto B deve ter: "))
+    while qnt_numB < 0:
+        qnt_numB = int(input("Número inválido! Digite um número maior ou igual a zero: "))
     while cont < int(qnt_numB):
-        numB = input("Digite um número para o conjunto B: ")
+        numB = float(input("Digite um número para o conjunto B: "))
         conjuntoB.append(numB)
         cont += 1
     print(f"Conjunto B: {conjuntoB}")
@@ -147,7 +151,7 @@ def vertice(a, b, c):
         return print(f"O vértice da parábola é: V = ({Xv}, {Yv}), sendo o seu ponto de mínimo")
 
 def grafico_funcao_segundo_grau(a, b, c):
-    eixoX = np.arange(-100, 100, 0.1)
+    eixoX = np.arange(-50, 50, 0.1)
     eixoY = []
     for x in eixoX:
         y = a * x**2 + b * x + c
@@ -159,14 +163,14 @@ def grafico_funcao_segundo_grau(a, b, c):
     plt.grid(True)
     plt.axhline(y=0, color="black")
     plt.axvline(x=0, color="black")
-    plt.show()
+    return plt.show()
 
 def funcoes_segundo_grau():
     print(50 * "-")
     print("Para f(x) = ax² + bx + c:")
-    a = int(input("Digite o valor de a: "))
-    b = int(input("Digite o valor de b: "))
-    c = int(input("Digite o valor de c: "))
+    a = float(input("Digite o valor de a: "))
+    b = float(input("Digite o valor de b: "))
+    c = float(input("Digite o valor de c: "))
     print(f"f(x) = {a}x² + {b}x + {c}")
     print("\nSelecione uma das opções:")
     print("1. Calcular raízes")
@@ -202,7 +206,7 @@ def funcao_exponencial_x(a, b):
     return print(f"O valor de f({x}) é: {funcao}")
 
 def grafico_funcao_exponencial(a, b):
-    eixoX = np.arange(-100, 100, 0.1)
+    eixoX = np.arange(-50, 50, 0.1)
     eixoY = []
     for x in eixoX:
         y = a * (b**x)
@@ -214,16 +218,15 @@ def grafico_funcao_exponencial(a, b):
     plt.grid(True)
     plt.axhline(y=0, color="black")
     plt.axvline(x=0, color="black")
-    plt.show()
+    return plt.show()
 
 def funcoes_exponenciais():
     print(50 * "-")
     print("Para f(x) = a * b**x:")
-    a = int(input("Digite o valor de a: "))
-    b = int(input("Digite o valor de b: "))
+    a = float(input("Digite o valor de a: "))
+    b = float(input("Digite o valor de b: "))
     while b == 1:
-        b = int(
-            input("O valor de b não pode ser igual a 1. Digite outro valor: "))
+        b = float(input("O valor de b não pode ser igual a 1. Digite outro valor: "))
     print(f"f(x) = {a} * {b}**x")
     print("\nSelecione uma das opções:")
     print("1. Verificar se é crescente ou decrescente")
@@ -263,7 +266,34 @@ def determinante(matriz):
         return print("O determinante de matrizes maiores que 2x2 ou 3x3 não está implementado")
 
 def multiplicacao_matrizes(matriz):
-    print("falta tudo")
+    matriz2 = []
+    num_linhas2 = int(input("Informe o número de linhas da segunda matriz: "))
+    while num_linhas2 <= 0:
+        num_linhas2 = int(input("Número inválido! Digite um número maior que zero: "))
+    num_colunas2 = int(input("Informe o número de colunas da segunda matriz: "))
+    while num_colunas2 <= 0:
+        num_colunas2 = int(input("Número inválido! Digite um número maior que zero: "))
+    for i in range(num_linhas2):
+        linha = []
+        for j in range(num_colunas2):
+            elemento = float(input(f"Informe M2[{i}][{j}]: "))
+            linha.append(elemento)
+        matriz2.append(linha)
+    for linha in matriz2:
+        print(linha)
+    if len(matriz[0]) != num_linhas2:
+        return print("Não é possível realizar a multiplicação pois as matrizes são de ordens diferentes")
+    resultado = []
+    for i in range(len(matriz)):
+        linha = []
+        for j in range(len(matriz2[0])):
+            elemento = 0
+            for k in range(len(matriz2)):
+                elemento += matriz[i][k] * matriz2[k][j]
+            linha.append(elemento)
+        resultado.append(linha)
+    for linha in resultado:
+        print(linha)
 
 def matriz_transposta(matriz):
     transposta = []
@@ -279,11 +309,15 @@ def matrizes():
     print(50 * "-")
     matriz = []
     num_linhas = int(input("Informe o número de linhas da matriz: "))
+    while num_linhas <= 0:
+        num_linhas = int(input("Número inválido! Digite um número maior que zero: "))
     num_colunas = int(input("Informe o número de colunas da matriz: "))
+    while num_colunas <= 0:
+        num_colunas = int(input("Número inválido! Digite um número maior que zero: "))
     for i in range(num_linhas):
         linha = []
         for j in range(num_colunas):
-            elemento = int(input(f"Informe M{i}{j}: "))
+            elemento = float(input(f"Informe M{i}{j}: "))
             linha.append(elemento)
         matriz.append(linha)
     for linha in matriz:
