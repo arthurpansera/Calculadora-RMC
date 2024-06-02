@@ -250,7 +250,10 @@ def funcoes_exponenciais():
 def determinante(matriz):
     if len(matriz) != len(matriz[0]):
         return print("Não é possível calcular o determinante pois a matriz não é quadrada")
-    if len(matriz) == 2:
+    elif len(matriz) == 1:
+        det = matriz[0][0]
+        return print(f"O determinante da matriz é: {det}")
+    elif len(matriz) == 2:
         det = matriz[0][0] * matriz[1][1] - matriz[0][1] * matriz[1][0]
         return print(f"O determinante da matriz é: {det}")
     elif len(matriz) == 3:
