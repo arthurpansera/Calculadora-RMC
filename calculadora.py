@@ -153,7 +153,7 @@ def vertice(a, b, c):
         return print(f"O vértice da parábola é: V = ({Xv}, {Yv}), sendo o seu ponto de mínimo")
 
 def grafico_funcao_segundo_grau(a, b, c):
-    eixoX = np.arange(-50, 50, 0.1)
+    eixoX = np.arange(-100, 100, 0.1)
     eixoY = []
     for x in eixoX:
         y = a * x**2 + b * x + c
@@ -208,12 +208,9 @@ def funcao_exponencial_x(a, b):
     return print(f"O valor de f({x}) é: {funcao}")
 
 def grafico_funcao_exponencial(a, b):
-    eixoX = np.arange(-50, 50, 0.1)
-    eixoY = []
-    for x in eixoX:
-        y = a * (b**x)
-        eixoY.append(y)
-    plt.plot(eixoX, eixoY, label=f"f(x) = {a} * {b}**x", color="red")
+    t = np.arange(-2, 2, 0.001)
+    amplitude = 4 * np.exp(t)
+    plt.plot(t, amplitude, label=f"f(x) = {a} * {b}**x", color="red")
     plt.title(f"Função exponencial: f(x) = {a} * {b}**x")
     plt.xlabel("Eixo x")
     plt.ylabel("Eixo y")
