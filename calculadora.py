@@ -21,29 +21,34 @@ def operacoes_basicas():
     print(50 * "-")
     num1 = float(input("Digite o primeiro número: "))
     num2 = float(input("Digite o segundo número: "))
-    print("\nSelecione a operação:")
-    print("1. Adição")
-    print("2. Subtração")
-    print("3. Multiplicação")
-    print("4. Divisão")
-    print("5. Voltar")
-    escolha = int(input("Digite sua escolha: "))
-    while escolha < 1 or escolha > 5:
-        escolha = int(input("Opção inválida! Escolha uma das opções: "))
-    if escolha == 1:
-        print(f"Resultado: {adicao(num1, num2)}")
-    elif escolha == 2:
-        print(f"Resultado: {subtracao(num1, num2)}")
-    elif escolha == 3:
-        print(f"Resultado: {multiplicacao(num1, num2)}")
-    elif escolha == 4:
-        while num2 == 0:
-            print("Opção inválida! Impossível dividir por 0!")
-            num1 = float(input("Digite o primeiro número: "))
-            num2 = float(input("Digite o segundo número: "))
-        print(f"Resultado: {divisao(num1, num2)}")
-    else:
-        print("Voltando...")
+    while True:
+        print(50 * "-")
+        print(f"\nPrimeiro número: {num1}")
+        print(f"Segundo número: {num2}")
+        print("\nSelecione a operação:")
+        print("1. Adição")
+        print("2. Subtração")
+        print("3. Multiplicação")
+        print("4. Divisão")
+        print("5. Voltar")
+        escolha = int(input("Digite sua escolha: "))
+        while escolha < 1 or escolha > 5:
+            escolha = int(input("Opção inválida! Escolha uma das opções: "))
+        if escolha == 1:
+            print(f"Resultado: {adicao(num1, num2)}")
+        elif escolha == 2:
+            print(f"Resultado: {subtracao(num1, num2)}")
+        elif escolha == 3:
+            print(f"Resultado: {multiplicacao(num1, num2)}")
+        elif escolha == 4:
+            while num2 == 0:
+                print("Opção inválida! Impossível dividir por 0!")
+                num1 = float(input("Digite o primeiro número: "))
+                num2 = float(input("Digite o segundo número: "))
+            print(f"Resultado: {divisao(num1, num2)}")
+        else:
+            print("Voltando...")
+            menu_opcoes()
 
 def subconjunto_proprio(conjuntoA, conjuntoB):
     for numA in conjuntoA:
@@ -92,7 +97,6 @@ def conjuntos_numericos():
         numA = float(input("Digite um número para o conjunto A: "))
         conjuntoA.append(numA)
         cont += 1
-    print(f"Conjunto A: {conjuntoA}")
     cont = 0
     qnt_numB = int(input("Digite quantos números o conjunto B deve ter: "))
     while qnt_numB < 0:
@@ -101,26 +105,30 @@ def conjuntos_numericos():
         numB = float(input("Digite um número para o conjunto B: "))
         conjuntoB.append(numB)
         cont += 1
-    print(f"Conjunto B: {conjuntoB}")
-    print("\nSelecione uma das opções:")
-    print("1. Verificar se A é subconjunto próprio de B")
-    print("2. Realizar operação de união")
-    print("3. Calcular intersecção")
-    print("4. Calcular diferença")
-    print("5. Voltar")
-    escolha = int(input("Digite sua escolha: "))
-    while escolha < 1 or escolha > 5:
-        escolha = int(input("Opção inválida. Escolha uma das opções: "))
-    if escolha == 1:
-        subconjunto_proprio(conjuntoA, conjuntoB)
-    elif escolha == 2:
-        uniao(conjuntoA, conjuntoB)
-    elif escolha == 3:
-        interseccao(conjuntoA, conjuntoB)
-    elif escolha == 4:
-        diferenca(conjuntoA, conjuntoB)
-    else:
-        print("Voltando...")
+    while True:
+        print(50 * "-")
+        print(f"\nConjunto A: {conjuntoA}")
+        print(f"Conjunto B: {conjuntoB}")
+        print("\nSelecione uma das opções:")
+        print("1. Verificar se A é subconjunto próprio de B")
+        print("2. Realizar operação de união")
+        print("3. Calcular intersecção")
+        print("4. Calcular diferença")
+        print("5. Voltar")
+        escolha = int(input("Digite sua escolha: "))
+        while escolha < 1 or escolha > 5:
+            escolha = int(input("Opção inválida. Escolha uma das opções: "))
+        if escolha == 1:
+            subconjunto_proprio(conjuntoA, conjuntoB)
+        elif escolha == 2:
+            uniao(conjuntoA, conjuntoB)
+        elif escolha == 3:
+            interseccao(conjuntoA, conjuntoB)
+        elif escolha == 4:
+            diferenca(conjuntoA, conjuntoB)
+        else:
+            print("Voltando...")
+            menu_opcoes()
 
 def raizes(a, b, c):
     delta = b**2 - 4 * a * c
@@ -173,26 +181,29 @@ def funcoes_segundo_grau():
     a = float(input("Digite o valor de a: "))
     b = float(input("Digite o valor de b: "))
     c = float(input("Digite o valor de c: "))
-    print(f"f(x) = {a}x² + {b}x + {c}")
-    print("\nSelecione uma das opções:")
-    print("1. Calcular raízes")
-    print("2. Calcular função em x pedido")
-    print("3. Calcular vértice")
-    print("4. Gerar gráfico")
-    print("5. Voltar")
-    escolha = int(input("Digite sua escolha: "))
-    while escolha < 1 or escolha > 5:
-        escolha = int(input("Opção inválida. Escolha uma das opções: "))
-    if escolha == 1:
-        raizes(a, b, c)
-    elif escolha == 2:
-        funcao_segundo_grau_x(a, b, c)
-    elif escolha == 3:
-        vertice(a, b, c)
-    elif escolha == 4:
-        grafico_funcao_segundo_grau(a, b, c)
-    else:
-        print("Voltando...")
+    while True:
+        print(50 * "-")
+        print(f"f(x) = {a}x² + {b}x + {c}")
+        print("\nSelecione uma das opções:")
+        print("1. Calcular raízes")
+        print("2. Calcular função em x pedido")
+        print("3. Calcular vértice")
+        print("4. Gerar gráfico")
+        print("5. Voltar")
+        escolha = int(input("Digite sua escolha: "))
+        while escolha < 1 or escolha > 5:
+            escolha = int(input("Opção inválida. Escolha uma das opções: "))
+        if escolha == 1:
+            raizes(a, b, c)
+        elif escolha == 2:
+            funcao_segundo_grau_x(a, b, c)
+        elif escolha == 3:
+            vertice(a, b, c)
+        elif escolha == 4:
+            grafico_funcao_segundo_grau(a, b, c)
+        else:
+            print("Voltando...")
+            menu_opcoes()
 
 def crescente_ou_decrescente(a):
     if a > 0:
@@ -226,23 +237,26 @@ def funcoes_exponenciais():
     b = float(input("Digite o valor de b: "))
     while b == 1:
         b = float(input("O valor de b não pode ser igual a 1. Digite outro valor: "))
-    print(f"f(x) = {a} * {b}**x")
-    print("\nSelecione uma das opções:")
-    print("1. Verificar se é crescente ou decrescente")
-    print("2. Calcular função em x pedido")
-    print("3. Gerar gráfico")
-    print("4. Voltar")
-    escolha = int(input("Digite sua escolha: "))
-    while escolha < 1 or escolha > 4:
-        escolha = int(input("Opção inválida. Escolha uma das opções: "))
-    if escolha == 1:
-        crescente_ou_decrescente(a)
-    elif escolha == 2:
-        funcao_exponencial_x(a, b)
-    elif escolha == 3:
-        grafico_funcao_exponencial(a, b)
-    else:
-        print("Voltando...")
+    while True:
+        print(50 * "-")
+        print(f"f(x) = {a} * {b}**x")
+        print("\nSelecione uma das opções:")
+        print("1. Verificar se é crescente ou decrescente")
+        print("2. Calcular função em x pedido")
+        print("3. Gerar gráfico")
+        print("4. Voltar")
+        escolha = int(input("Digite sua escolha: "))
+        while escolha < 1 or escolha > 4:
+            escolha = int(input("Opção inválida. Escolha uma das opções: "))
+        if escolha == 1:
+            crescente_ou_decrescente(a)
+        elif escolha == 2:
+            funcao_exponencial_x(a, b)
+        elif escolha == 3:
+            grafico_funcao_exponencial(a, b)
+        else:
+            print("Voltando...")
+            menu_opcoes()
 
 def determinante(matriz):
     if len(matriz) != len(matriz[0]):
@@ -323,24 +337,27 @@ def matrizes():
             elemento = float(input(f"Informe M{i}{j}: "))
             linha.append(elemento)
         matriz.append(linha)
-    for linha in matriz:
-        print(linha)
-    print("\nSelecione uma das opções:")
-    print("1. Determinante")
-    print("2. Multiplicação")
-    print("3. Matriz transposta")
-    print("4. Voltar")
-    escolha = int(input("Digite sua escolha: "))
-    while escolha < 1 or escolha > 4:
-        escolha = int(input("Opção inválida. Escolha uma das opções: "))
-    if escolha == 1:
-        determinante(matriz)
-    elif escolha == 2:
-        multiplicacao_matrizes(matriz)
-    elif escolha == 3:
-        matriz_transposta(matriz)
-    else:
-        print("Voltando...")
+    while True:
+        print(50 * "-")
+        for linha in matriz:
+            print(linha)
+        print("\nSelecione uma das opções:")
+        print("1. Determinante")
+        print("2. Multiplicação")
+        print("3. Matriz transposta")
+        print("4. Voltar")
+        escolha = int(input("Digite sua escolha: "))
+        while escolha < 1 or escolha > 4:
+            escolha = int(input("Opção inválida. Escolha uma das opções: "))
+        if escolha == 1:
+            determinante(matriz)
+        elif escolha == 2:
+            multiplicacao_matrizes(matriz)
+        elif escolha == 3:
+            matriz_transposta(matriz)
+        else:
+            print("Voltando...")
+            menu_opcoes()
 
 def menu_opcoes():
     print(50 * "-")
@@ -368,5 +385,4 @@ def menu_opcoes():
         print("Saindo...")
         exit()
 
-while True:
-    menu_opcoes()
+menu_opcoes()
